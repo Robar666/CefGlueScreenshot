@@ -7,7 +7,7 @@ I wanted to rasterize SVGs to PNGs on my Windows Azure Worker Role.
 
 MagickNet (https://magick.codeplex.com/ - .NET port of ImageMagick) works fair enough, but not every SVG is rendered perfectly. Especially external fonts and displacement maps are causing problems.
 
-Solution open a headless webbrowser and take a screenshot.
+Solution: Open a headless webbrowser and take a screenshot.
 
 ## Possible frameworks
 
@@ -39,8 +39,11 @@ One contributer (https://github.com/arsher) published a pull request (https://gi
 
 **CefGlue.**
 
-It contrast to CEFSharp it uses P/Invoke calls, which aren't causing any troubles - yet.
+In contrast to CEFSharp CefGlue is uses P/Invoke calls, which aren't causing any troubles - yet.
 Basically I updated the solution posted here (http://joelverhagen.com/blog/2013/12/headless-chromium-in-c-with-cefglue/) and used the packages from MyGet (http://myget.org/gallery/dazaraev). Unfortunately CefGlue has no official NuGet packages yet.
+
+Chromium version: Chrome 51.0.2704.63
+.NET version: 4.5.2
 
 ## Build info
 Since the CEF related binaries are quite big, I have excluded them from the repo. Visual Studio will probably show you a warning that several files are missing. To get the missing files you have to download the CEF related packages from [MyGet](http://myget.org/gallery/dazaraev) (add sourcs for the third-party NuGet Server: https://docs.nuget.org/create/hosting-your-own-nuget-feeds ). The missing files can then be found in the directory `.\packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build`. Copy them into the solution directory and hit start.
