@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,6 +43,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xilium.CefGlue, Version=51.1.2.0, Culture=neutral, PublicKeyToken=f220c273af8db54b, processorArchitecture=MSIL">
+      <HintPath>packages\Xilium.CefGlue.51.1.2\lib\net45\Xilium.CefGlue.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -48,8 +54,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build\ChromiumEmbedded.Redistributable-win-x64.targets" Condition="Exists('packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build\ChromiumEmbedded.Redistributable-win-x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build\ChromiumEmbedded.Redistributable-win-x64.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build\ChromiumEmbedded.Redistributable-win-x64.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
