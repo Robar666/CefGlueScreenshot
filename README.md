@@ -33,7 +33,7 @@ CEFSharp looked good at the beginning (NuGet packages, nice community https://gi
 * https://github.com/cefsharp/CefSharp/issues/1488
 * https://github.com/cefsharp/CefSharp/issues/1127
 
-One contributer (https://github.com/arsher) published a pull request (https://github.com/cefsharp/CefSharp/pull/1556 ) which should fix this problem. But I was never able to build his solution.
+One contributer (@arsher) published a pull request (https://github.com/cefsharp/CefSharp/pull/1556 ) which should fix this problem. But I was never able to build his solution.
 
 ## Solution
 
