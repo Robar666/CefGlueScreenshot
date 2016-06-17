@@ -45,7 +45,7 @@ Basically I updated the solution posted here (http://joelverhagen.com/blog/2013/
 Chromium version: Chrome 51.0.2704.63 | .NET version: 4.5.2 | CEF Version: 3.2704.1409 | Date: 1.6.2016
 
 ## Build info
-Since the CEF related binaries are quite big, I have excluded them from the repo. Visual Studio will probably show you a warning that several files are missing. To get the missing files you have to download the CEF related packages from [MyGet](http://myget.org/gallery/dazaraev) (add sourcs for the third-party NuGet Server: https://docs.nuget.org/create/hosting-your-own-nuget-feeds ). The missing files can then be found in the directory `.\packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build`. Copy them into the solution directory and hit start.
+Since the CEF related binaries are quite big, I have excluded them from the repo. Visual Studio will probably show you a warning that several files are missing. To get the missing files you have to download the CEF related packages from [MyGet](http://myget.org/gallery/dazaraev) (add sourcs for the third-party NuGet Server: https://docs.nuget.org/create/hosting-your-own-nuget-feeds ). The missing files can then be found in the directory `.\packages\ChromiumEmbedded.Redistributable-win-x64.51.1.1\build`. Copy them into the solution directory, select `x64` instead of `AnyCPU` and hit start.
 
 ## Further reading
 * Difference between CEFSharp and CefGlue -  http://stackoverflow.com/questions/12224798/any-reason-to-prefer-cefsharp-over-cefglue-or-vice-versa
