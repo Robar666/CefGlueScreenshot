@@ -1,3 +1,18 @@
+# Update June 2018
+So after 2 years, I finally found a solution for the perfect screenshot with a headless chrome.
+
+Long story short:
+* I don't use a C#/.NET wrapper anymore, I created my own NodeJS rasterize service with [puppeteer](https://github.com/GoogleChrome/puppeteer). 
+* A REST API using [express](http://expressjs.com/) listens for incoming rasterize requests and then basically calls [page.screenshot](https://pptr.dev/#?product=Puppeteer&version=v1.5.0&show=api-pagescreenshotoptions)
+* The rasterized result will be return as byte array
+* The whole NodeJS app runs as a guest executable in service fabric
+* "Why don't you use Azure Web App/Azure Functions?" you may ask => Because of [GDI restrictions](https://stackoverflow.com/questions/47806116/how-to-run-headless-chrome-in-azure-cloud-service-or-azure-functions)
+* I can now call the REST API from my Web app and create screenshots from any webpage/HTML content. 
+
+---
+---
+# Original Post (June 2016)
+
 # CefGlueScreenshot
 Take screenshot from any webpage with the CEF wrapper CefGlue.
 
